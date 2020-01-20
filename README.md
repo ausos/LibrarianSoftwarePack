@@ -1,16 +1,16 @@
-#Librarian software suite
+# Librarian software pack
 A set of CLI utilities for working with library
 
-###Getting Started
+### Getting Started
 `$ pip3 install -r requirements.txt`
-#####If you have problems with installation requirements on macOS Catalina try to fix them with commands:
+##### If you have problems with installation requirements on macOS Catalina try to fix them with commands:
 `export LDFLAGS="-L/usr/local/opt/openssl/lib"`
 
 `export CPPFLAGS="-I/usr/local/opt/openssl/include"`
-####Create database with Docker
+#### Create database with Docker
 `sudo docker-compose up -d`
 
-###Working with utils
+### Working with utils
 #### digger.py
 ```
 This is an utility for adding books to database
