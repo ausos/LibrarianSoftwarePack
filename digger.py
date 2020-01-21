@@ -107,12 +107,13 @@ if __name__ == '__main__':
         else:
             print(f'File "{args.a}" does not exist')
 
-    data = bookS_parser(book_paths)
-    connection, cursor = db.connect_db()
-
-    if args.u:
-        db.fill_and_update_table(cursor, data)
+    if args.s or args.a:
+        connection, cursor = db.connect_db()
+        data = bookS_parser(book_paths)
+        if args.u:
+            db.fill_and_update_table(cursor, data)
+        else:
+            db.fill_table(cursor, data)
+        db.close_connection(connection, cursor)
     else:
-        db.fill_table(cursor, data)
-
-    db.close_connection(connection, cursor)
+        print('Add the directory with books to "-s" or path to single book to "-a"')

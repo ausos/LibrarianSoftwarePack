@@ -25,13 +25,14 @@ if __name__ == '__main__':
     else:
         conditions['year'] = ''
 
-    connection, cursor = db.connect_db()
-
-    if args.s:
-        db.search_book_number(cursor, conditions)
-        print(cursor.fetchall())
+    if args.a or args.n or args.y:
+        connection, cursor = db.connect_db()
+        if args.s:
+            db.search_book_number(cursor, conditions)
+            print(cursor.fetchall())
+        else:
+            db.search_book(cursor, conditions)
+            print(cursor.fetchall())
+        db.close_connection(connection, cursor)
     else:
-        db.search_book(cursor, conditions)
-        print(cursor.fetchall())
-
-    db.close_connection(connection, cursor)
+        print('Add book search criteria')
