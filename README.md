@@ -1,5 +1,7 @@
 # Librarian software pack
-A set of CLI utilities for working with library
+A set of CLI utilities for working with library.
+
+Supported book formats : fb2, fb2.zip, fb2.gz
 
 ### Getting Started
 `$ pip3 install -r requirements.txt`
