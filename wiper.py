@@ -8,11 +8,12 @@ parser.add_argument('-a', default=False, action='store_true',
 
 if __name__ == '__main__':
     args = parser.parse_args()
-    if args.n:
-        connection, cursor = db.connect_db()
-        db.delete_by_number(cursor, connection, args.n)
+    if args.n or args.a:
+        connection, cursor = db.connect_db()   
+        if args.n:
+            db.delete_by_number(cursor, connection, args.n)
         if args.a:
-            db.delete_all(cursor, connection)
-        db.close_connection(connection, cursor)
+                db.delete_all(cursor, connection)
+        db.close_connection(connection, cursor) 
     else:
         print('Add the book number to delete in argument "-n"')
