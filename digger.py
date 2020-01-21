@@ -69,6 +69,7 @@ def book_parser(book_path):
         authors = ','.join(authors)
 
     for child in root_second:
+        year = ''
         if child.tag.endswith('year'):
             if child.text is not None:
                 year = child.text
