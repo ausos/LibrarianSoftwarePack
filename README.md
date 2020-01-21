@@ -17,10 +17,12 @@ Supported book formats : fb2, fb2.zip, fb2.gz
 ```
 This is an utility for adding books to database
 usage: digger.py [-s] [-a] [-u]
-optional arguments:
-  -h, --help  show this help message
+arguments:
   -s S        path to directory with books
   -a A        path to the specific book
+
+optional arguments:
+  -h, --help  show this help message
   -u          updating information about the book in the database
 ```
 Usage example: `python3 digger.py -s /mybooks`
@@ -41,10 +43,11 @@ Usage example: `python3 seeker.py -a Pushkin`
 ```usage: wiper.py [-h] [-n N] [-a]
 
 This is an utility for deleting book or clear whole library
-
+arguments:
+  -n N        book number
+  
 optional arguments:
   -h, --help  show this help message
-  -n N        book number
   -a          delete all books 
 ```
 Usage example: `python3 wiper.py -n 22`
