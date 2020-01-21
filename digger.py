@@ -91,13 +91,17 @@ if __name__ == '__main__':
                 if not dirname.endswith('/'):
                     dirname += '/'
                 for file in files:
-                    if file.endswith('.fb2') or file.endswith('.fb2.zip') or file.endswith('.fb2.gz'):
+                    if file.endswith('.fb2')\
+                            or file.endswith('.fb2.zip')\
+                            or file.endswith('.fb2.gz'):
                         book_paths.append(dirname + file)
         else:
             print(f'Directory "{args.s}" does not exist')
     if args.a:
         if os.path.isfile(args.a):
-            if args.a.endswith('.fb2') or args.a.endswith('.fb2.zip') or args.a.endswith('.fb2.gz'):
+            if args.a.endswith('.fb2')\
+                    or args.a.endswith('.fb2.zip')\
+                    or args.a.endswith('.fb2.gz'):
                 book_paths.append(args.a)
         else:
             print(f'File "{args.a}" does not exist')

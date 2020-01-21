@@ -31,8 +31,7 @@ if __name__ == '__main__':
         db.search_book_number(cursor, conditions)
         print(cursor.fetchall())
     else:
-        db.search_book(cursor,conditions)
+        db.search_book(cursor, conditions)
         print(cursor.fetchall())
-
 
     db.close_connection(connection, cursor)

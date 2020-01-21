@@ -41,7 +41,7 @@ def close_connection(conn, cur):
         conn.close()
 
 
-def fill_table(cur,book):
+def fill_table(cur, book):
     psycopg2.extras.execute_values(cur, '''
     INSERT INTO books(
     book_name,
@@ -54,7 +54,7 @@ def fill_table(cur,book):
     print(cur.statusmessage)
 
 
-def fill_and_update_table(cur,book):
+def fill_and_update_table(cur, book):
     psycopg2.extras.execute_values(cur, '''
     INSERT INTO books(
     book_name,
@@ -62,7 +62,7 @@ def fill_and_update_table(cur,book):
     year,
     book_path)
     VALUES %s
-    ON CONFLICT (book_path) DO UPDATE 
+    ON CONFLICT (book_path) DO UPDATE
     SET book_name = excluded.book_name,
         author = excluded.author,
         year = excluded.year,
@@ -71,13 +71,13 @@ def fill_and_update_table(cur,book):
     print(cur.statusmessage)
 
 
-def delete_all(cur,conn):
+def delete_all(cur, conn):
     cur.execute("DELETE FROM Books")
     conn.commit()
     print(cur.statusmessage)
 
 
-def delete_by_number(cur,conn, number):
+def delete_by_number(cur, conn, number):
     cur.execute(f"DELETE FROM Books WHERE number = {number}")
     conn.commit()
     print(cur.statusmessage)
@@ -86,19 +86,18 @@ def delete_by_number(cur,conn, number):
 def search_book(cur, condition):
     cur.execute(f'''
     SELECT * FROM books
-    WHERE author LIKE '%{condition['author']}%' 
-    AND book_name LIKE '%{condition['book_name']}%' 
+    WHERE author LIKE '%{condition['author']}%'
+    AND book_name LIKE '%{condition['book_name']}%'
     AND year LIKE '%{condition['year']}%'
     ''')
     print(cur.statusmessage)
+
 
 def search_book_number(cur, condition):
     cur.execute(f'''
     SELECT number FROM books
-    WHERE author LIKE '%{condition['author']}%' 
-    AND book_name LIKE '%{condition['book_name']}%' 
+    WHERE author LIKE '%{condition['author']}%'
+    AND book_name LIKE '%{condition['book_name']}%'
     AND year LIKE '%{condition['year']}%'
     ''')
     print(cur.statusmessage)
-
-

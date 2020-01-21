@@ -10,7 +10,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     connection, cursor = db.connect_db()
     if args.n:
-        db.delete_by_number(cursor,connection, args.n)
+        db.delete_by_number(cursor, connection, args.n)
     else:
         print('Add the book number to delete in argument "-n"')
     if args.a:
